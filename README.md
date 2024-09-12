@@ -1,4 +1,4 @@
-# Action for Setting Up MATLAB
+# Action for Setting Up MATLAB 
 
 The [Setup MATLAB](#set-up-matlab) action enables you to set up MATLAB&reg; and other MathWorks&reg; products on a [GitHub&reg;-hosted](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners) runner. When you specify this action as part of your workflow, the action sets up your preferred MATLAB release (R2021a or later) on a Linux&reg;, Windows&reg;, or macOS runner. If you do not specify a release, the action sets up the latest release of MATLAB. As part of the setup process, the action prepends MATLAB to the `PATH` system environment variable.
 
