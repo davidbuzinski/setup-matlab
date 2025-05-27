@@ -59,7 +59,7 @@ export async function setup(platform: string, architecture: string): Promise<str
     return mpm
 }
 
-export async function install(mpmPath: string, release: matlab.Release, products: string[], destination: string) {
+export async function install(mpmPath: string, release: matlab.Release, source: string, products: string[], destination: string) {
     const mpmRelease = release.name + release.update
     // remove spaces and flatten product list
     let parsedProducts = products.flatMap(p => p.split(/[ ]+/));
@@ -68,11 +68,20 @@ export async function install(mpmPath: string, release: matlab.Release, products
     // Remove duplicate products
     parsedProducts = [...new Set(parsedProducts)];
 
-    let mpmArguments: string[] = [
-        "install",
-        `--release=${mpmRelease}`,    
-        `--destination=${destination}`,
-    ]
+    let mpmArguments: string[]
+    if (source.length !== 0) {
+        mpmArguments = [
+            "install",
+            `--source=${source}`,    
+            `--destination=${destination}`,
+        ]    
+    } else {
+        mpmArguments = [
+            "install",
+            `--release=${mpmRelease}`,    
+            `--destination=${destination}`,
+        ]
+    }
     if (release.isPrerelease) {
         mpmArguments = mpmArguments.concat(["--release-status=Prerelease"]);
     }

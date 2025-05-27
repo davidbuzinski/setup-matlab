@@ -18,7 +18,7 @@ import * as cache from "./cache-restore";
  * @param products A list of products to install (e.g. ["MATLAB", "Simulink"]).
  * @param useCache whether to use the cache to restore & save the MATLAB installation
  */
-export async function install(platform: string, architecture: string, release: string, products: string[], useCache: boolean) {
+export async function install(platform: string, architecture: string, release: string, source: string, products: string[], useCache: boolean) {
     const releaseInfo = await matlab.getReleaseInfo(release);
     if (releaseInfo.name < "r2020b") {
         return Promise.reject(Error(`Release '${releaseInfo.name}' is not supported. Use 'R2020b' or a later release.`));
@@ -47,7 +47,7 @@ export async function install(platform: string, architecture: string, release: s
 
         if (!alreadyExists && !cacheHit) {
             const mpmPath: string = await mpm.setup(platform, matlabArch);
-            await mpm.install(mpmPath, releaseInfo, products, destination);
+            await mpm.install(mpmPath, releaseInfo, source, products, destination);
         }
 
         core.addPath(path.join(destination, "bin"));
