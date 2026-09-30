@@ -1,6 +1,6 @@
 {
-    "matlabDepsUrl": "https://ssd.mathworks.com/supportfiles/ci/matlab-deps/v0/install.sh",
-    "matlabReleaseInfoUrl": "https://ssd.mathworks.com/supportfiles/ci/matlab-release/v0/",
+    "matlabDepsUrl": "https://mw-ci-static-dev.s3.us-east-1.amazonaws.com/matlab-release/install.sh",
+    "matlabReleaseInfoUrl": "https://mw-ci-static-dev.s3.us-east-1.amazonaws.com/matlab-release/",
     "matlabBatchRootUrl": "https://ssd.mathworks.com/supportfiles/ci/matlab-batch/v1/",
     "mpmRootUrl": "https://www.mathworks.com/mpm/",
     "appleSiliconJdkUrl": "https://corretto.aws/downloads/resources/8.402.08.1/amazon-corretto-8.402.08.1-macosx-aarch64.pkg"
